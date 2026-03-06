@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mondrian — Shader + Webcam Contours</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; font-family: system-ui, sans-serif; }
+    #canvas { display: block; width: 100%; height: 100%; }
+    #hint {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 10px; text-align: center;
+      background: rgba(0,0,0,0.5); color: #fff; font-size: 14px;
+    }
+    #param-panel {
+      position: fixed; top: 12px; left: 12px; z-index: 100;
+      background: rgba(0,0,0,0.82); color: #e8e6e3;
+      padding: 12px 14px; border-radius: 10px;
+      font-size: 12px; max-width: 260px; max-height: 85vh; overflow-y: auto;
+    }
+    #param-panel .title { font-weight: 600; margin: 10px 0 6px; color: #b0d4ff; }
+    #param-panel .title:first-child { margin-top: 0; }
+    #param-panel .panel-actions { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    #param-panel .panel-actions button {
+      flex: 1; min-width: 70px; padding: 6px 10px;
+      background: #2a3a4a; color: #c8e; border: 1px solid #4a5a6a;
+      border-radius: 6px; cursor: pointer; font-size: 12px;
+    }
+    #param-panel .panel-actions button:hover { background: #3a4a5a; }
+    #param-panel .row { margin: 6px 0; }
+    #param-panel label { display: block; margin-bottom: 2px; }
+    #param-panel .val { color: #8af; margin-left: 4px; }
+    #param-panel input[type=range] { width: 100%; accent-color: #5a9; }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="hint">Allow camera — ripples follow body pose keypoints.</div>
+  <!-- Optional: add TF + pose-detection for body pose ripples (33 keypoints, see README) -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
